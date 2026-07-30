@@ -1,0 +1,128 @@
+.exp-div {
+    padding-top: 5%;
+    padding-bottom: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ── Timeline wrapper ── */
+.exp-timeline {
+    position: relative;
+    width: 85%;
+    max-width: 1200px;
+    margin: 40px auto 0;
+    padding-left: 44px;
+}
+
+/* Vertical green line */
+.exp-timeline::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 10px;
+    bottom: 20px;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--primary-green) 80%, transparent);
+    border-radius: 2px;
+}
+
+/* ── Each entry ── */
+.timeline-item {
+    position: relative;
+    margin-bottom: 32px;
+    background-color: transparent !important;
+}
+
+/* Glowing dot — centered on the timeline line, flush with card top */
+.timeline-dot {
+    position: absolute;
+    left: -44px;
+    top: 20px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: var(--primary-green);
+    border: 3px solid var(--bg);
+    box-shadow: 0 0 12px rgba(110, 243, 165, 0.5);
+    z-index: 1;
+}
+
+/* ── Card ── */
+.exp-card {
+    padding: 24px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    background-color: var(--bg-dark);
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid rgba(110, 243, 165, 0.08);
+    transition: border-color 0.3s;
+}
+
+.exp-card:hover {
+    border-color: rgba(110, 243, 165, 0.28);
+}
+
+/* Header: meta left, pills right */
+.exp-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 12px;
+    background-color: transparent;
+}
+
+.exp-meta {
+    background-color: transparent;
+    flex-shrink: 0;
+}
+
+.exp-org {
+    color: var(--primary-green);
+}
+
+.exp-position {
+    color: var(--text-light);
+}
+
+.exp-session {
+    color: white;
+}
+
+/* ── Tech pills ── */
+.exp-tech-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: flex-end;
+    max-width: 55%;
+    background-color: transparent;
+}
+
+.exp-tech-pill {
+    background-color: rgba(110, 243, 165, 0.08);
+    border: 1px solid rgba(110, 243, 165, 0.3);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: var(--primary-green);
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 6px;
+    white-space: nowrap;
+}
+
+/* ── Detail bullets ── */
+.exp-detail {
+    width: 100%;
+    background-color: transparent;
+    margin-left: 0;
+    line-height: 28px;
+    padding-left: 18px;
+}
+
+.exp-detail-item {
+    color: white;
+}
