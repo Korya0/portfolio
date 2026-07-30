@@ -8,8 +8,8 @@ function mapMetaDataInHeader() {
     var tagElement = document.getElementById("tag-label");
     tagElement.innerText = 'Software Engineer';
 
-    let firstName = 'Muhammad';
-    let lastName = 'Hamza';
+    let firstName = 'Mahmoud';
+    let lastName = 'Mohamed';
 
     var firstNameElement = document.getElementById("first-name");
     firstNameElement.innerHTML = firstName;
@@ -23,27 +23,15 @@ function mapSocialLinksData() {
     let socials = [
         {
             "icon": "fa fa-linkedin-square",
-            "value": "https://linkedin.com/in/mhmzdev"
+            "value": "https://linkedin.com/in/mahmoudk25"
         },
         {
             "icon": "fa fa-github",
-            "value": "https://github.com/mhmzdev"
+            "value": "https://github.com/Korya0"
         },
         {
             "icon": "fa fa-instagram",
-            "value": "https://instagram.com/mhmzdev"
-        },
-        {
-            "icon": "fa fa-twitter",
-            "value": "https://twitter.com/mhmzdev"
-        },
-        {
-            "icon": "fa fa-medium",
-            "value": "https://mhmzdev.medium.com"
-        },
-        {
-            "icon": "fa fa-stack-overflow",
-            "value": "https://stackoverflow.com/users/12297382/hamza"
+            "value": "https://instagram.com/nahmoudmohammeddev"
         }
     ];
 
@@ -57,7 +45,24 @@ function mapSocialLinksData() {
 
         var link = socials[i]["value"];
         anchor.href = link;
-        anchor.target = "_blank";
+
+        if (socials[i]["copy"]) {
+            anchor.addEventListener("click", function(e) {
+                e.preventDefault();
+                var text = this.getAttribute("data-copy");
+                navigator.clipboard.writeText(text).then(function() {
+                    var original = document.querySelector(".social-icon.fa-envelope") ? document.querySelector(".social-icon.fa-envelope").style.color : "";
+                    var iconEl = document.querySelector(".social-icon.fa-envelope");
+                    if (iconEl) iconEl.style.color = "var(--primary-green)";
+                    setTimeout(function() {
+                        if (iconEl) iconEl.style.color = original || "";
+                    }, 1000);
+                });
+            });
+            anchor.setAttribute("data-copy", socials[i]["copy"]);
+        } else {
+            anchor.target = "_blank";
+        }
 
         anchor.appendChild(icon);
 
@@ -76,7 +81,23 @@ function mapSocialLinksData() {
 
         var link = socials[i]["value"];
         anchor.href = link;
-        anchor.target = "_blank";
+
+        if (socials[i]["copy"]) {
+            anchor.addEventListener("click", function(e) {
+                e.preventDefault();
+                var text = this.getAttribute("data-copy");
+                navigator.clipboard.writeText(text).then(function() {
+                    var iconEl = document.querySelectorAll(".social-icon.fa-envelope");
+                    iconEl.forEach(function(el) { el.style.color = "#28a745"; });
+                    setTimeout(function() {
+                        iconEl.forEach(function(el) { el.style.color = ""; });
+                    }, 1000);
+                });
+            });
+            anchor.setAttribute("data-copy", socials[i]["copy"]);
+        } else {
+            anchor.target = "_blank";
+        }
 
         anchor.appendChild(icon);
 

@@ -86,7 +86,7 @@ function onScroll(event) {
 }
 
 function downloadResume() {
-    window.open("https://mhmz.dev/resume", "_blank");
+    window.open("https://rebrand.ly/MahmoudCV", "_blank");
 }
 
 // Clean URL parameters for better SEO
