@@ -112,14 +112,26 @@
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     transition: 0.3s;
+    color: var(--primary-green);
+    text-decoration: none;
 }
 
 .p-label:hover {
     text-decoration: none;
-    cursor: pointer;
     background-color: rgba(110, 243, 165, 0.2);
     border-color: rgba(110, 243, 165, 0.7);
     box-shadow: 0 0 10px rgba(110, 243, 165, 0.25);
+    color: var(--primary-green);
+}
+
+.p-label:focus {
+    color: var(--primary-green);
+    text-decoration: none;
+    outline: none;
+}
+
+.p-label:active {
+    color: var(--primary-green);
 }
 
 .p-label-text {

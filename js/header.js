@@ -113,19 +113,19 @@ function mapSocialLinksData() {
 function mapStatsData() {
     let stats = [
         {
-            "value": "~6",
-            "text-1": "Years",
+            "value": "1+",
+            "text-1": "Year",
             "text-2": "Experience"
         },
         {
-            "value": "50+",
-            "text-1": "Projects Completed",
-            "text-2": "in 10+ Countries"
+            "value": "6+",
+            "text-1": "Apps Built",
+            "text-2": ""
         },
         {
-            "value": "~150k",
-            "text-1": "Content",
-            "text-2": "Reach & Views"
+            "value": "3",
+            "text-1": "Client",
+            "text-2": "Projects"
         }
     ];
 
@@ -134,11 +134,19 @@ function mapStatsData() {
         var value = stat["value"];
         var txt1 = stat["text-1"];
         var txt2 = stat["text-2"];
+        var link = stat["link"];
 
         var div = document.createElement("div");
         div.className = "stats stats-data";
 
-        var valueText = document.createElement("h1");
+        var valueText;
+        if (link) {
+            valueText = document.createElement("a");
+            valueText.href = link;
+            valueText.target = "_blank";
+        } else {
+            valueText = document.createElement("h1");
+        }
         valueText.className = "value";
         valueText.textContent = value;
 
