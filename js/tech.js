@@ -16,37 +16,37 @@ function mapTechData() {
         },
         {
             "name": "HTML 5",
-            "icon": "images/tech/html.svg",
+            "icon": "fa fa-html5",
             "type": "web-tech"
         },
         {
             "name": "CSS 3",
-            "icon": "images/tech/css.svg",
+            "icon": "fa fa-css3",
             "type": "web-tech"
         },
         {
             "name": "Bootstrap",
-            "icon": "images/tech/bootstrap.svg",
+            "icon": "fa fa-bootstrap",
             "type": "web-tech"
         },
         {
             "name": "Javascript",
-            "icon": "images/tech/js.svg",
+            "icon": "fa fa-js",
             "type": "web-tech"
         },
         {
             "name": "Flask Restful",
-            "icon": "images/tech/flask.svg",
+            "icon": "fa fa-python",
             "type": "server-tech"
         },
         {
             "name": "Node.js",
-            "icon": "images/tech/node.svg",
+            "icon": "fa fa-node",
             "type": "server-tech"
         },
         {
             "name": "Express.js",
-            "icon": "images/tech/express.svg",
+            "icon": "fa fa-node",
             "type": "server-tech"
         },
         {
@@ -56,7 +56,7 @@ function mapTechData() {
         },
         {
             "name": "Dart Frog",
-            "icon": "images/tech/dart_frog.svg",
+            "icon": "images/tech/dart.svg",
             "type": "server-tech"
         },
         {
@@ -66,12 +66,12 @@ function mapTechData() {
         },
         {
             "name": "MongoDB",
-            "icon": "images/tech/mongo.svg",
+            "icon": "fa fa-database",
             "type": "database-tech"
         },
         {
             "name": "Postgres SQL",
-            "icon": "images/tech/sql.svg",
+            "icon": "fa fa-database",
             "type": "database-tech"
         },
         {
@@ -81,7 +81,7 @@ function mapTechData() {
         },
         {
             "name": "Jira",
-            "icon": "images/tech/jira.svg",
+            "icon": "fa fa-jira",
             "type": "vc-tech"
         },
         {
@@ -96,36 +96,41 @@ function mapTechData() {
         },
         {
             "name": "Adobe XD",
-            "icon": "images/tech/adobexd.svg",
+            "icon": "fa fa-adobe",
             "type": "design-tech"
         }
     ];
 
     for (var i = 0; i < tech.length; i++) {
-        // div
         var techDiv = document.createElement("div");
         techDiv.className = "tech";
 
-        // icon
-        var techIconImg = document.createElement("img");
-        techIconImg.className = "tech-icon";
-        if (tech[i]["name"] == "Node.js" || tech[i]["name"] == "Dart Frog") {
-            techIconImg.style.height = "25px";
+        if (tech[i]["icon"].startsWith("fa ")) {
+            var iconEl = document.createElement("i");
+            iconEl.className = tech[i]["icon"] + " tech-icon";
+            if (tech[i]["name"] == "Node.js" || tech[i]["name"] == "Dart Frog") {
+                iconEl.style.height = "25px";
+            }
+            techDiv.appendChild(iconEl);
+        } else {
+            var techIconImg = document.createElement("img");
+            techIconImg.className = "tech-icon";
+            if (tech[i]["name"] == "Node.js" || tech[i]["name"] == "Dart Frog") {
+                techIconImg.style.height = "25px";
+            }
+            techIconImg.src = tech[i]["icon"];
+            techIconImg.alt = tech[i]["name"];
+            techDiv.appendChild(techIconImg);
         }
 
-        // tech name
         var techName = document.createElement("span");
         techName.className = "tech-label";
-
-        techIconImg.src = tech[i]["icon"];
-        techIconImg.alt = tech[i]["name"];
-
         techName.innerHTML = tech[i]["name"];
+        techDiv.appendChild(techName);
 
         var relatedDiv = document.getElementById(tech[i]["type"]);
-
-        techDiv.appendChild(techIconImg);
-        techDiv.appendChild(techName);
-        relatedDiv.appendChild(techDiv);
+        if (relatedDiv) {
+            relatedDiv.appendChild(techDiv);
+        }
     }
 }
