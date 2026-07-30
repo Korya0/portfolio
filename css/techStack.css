@@ -32,6 +32,8 @@
 .tech-icon {
     background-color: transparent;
     filter: brightness(0) saturate(100%) invert(77%) sepia(28%) saturate(757%) hue-rotate(96deg) brightness(101%) contrast(96%);
+    width: 24px;
+    height: 24px;
 }
 
 .tech-label {
