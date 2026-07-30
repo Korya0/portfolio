@@ -93,41 +93,6 @@
         padding-top: 0px;
     }
 
-    .about {
-        padding-top: 50px;
-        flex-direction: column-reverse;
-        align-items: center;
-    }
-
-    #about-img {
-        width: 90%;
-    }
-
-
-    .about-text {
-        text-align: center;
-    }
-
-    #about-me-heading,
-    #about-me-sub-heading,
-    #about-quote,
-    #about-me-text {
-        text-align: center;
-        width: 90%;
-    }
-
-    #about-me-text {
-        font-size: 12px;
-        line-height: 20px;
-    }
-
-    .download-resume {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding-bottom: 5%;
-    }
-
     .tech-stack {
         flex-direction: column;
         align-items: center;
