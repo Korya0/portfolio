@@ -5,6 +5,16 @@
     padding-top: 8%;
     padding-bottom: 8%;
     padding-left: 8%;
+    background-color: var(--bg-dark);
+}
+
+.tech-stack-detail,
+.stack-illustration,
+.tech-row,
+.label-stack,
+#tech-stack-text,
+#stack-illustration {
+    background-color: transparent;
 }
 
 .tech {

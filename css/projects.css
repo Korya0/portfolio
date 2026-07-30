@@ -5,7 +5,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: var(--bg-dark);
+    background-color: var(--bg);
 }
 
 #project-subtitle {
@@ -24,7 +24,7 @@
 
 .project-card {
     margin: 1em;
-    background-color: var(--bg);
+    background-color: var(--bg-dark);
     height: 300px;
     width: 350px;
     border-radius: 8px;
@@ -73,7 +73,7 @@
     left: 0;
     right: 0;
     height: 50%;
-    background: linear-gradient(to bottom, transparent, var(--bg));
+    background: linear-gradient(to bottom, transparent, var(--bg-dark));
     pointer-events: none;
 }
 
@@ -81,11 +81,13 @@
     color: white;
     padding-top: 5%;
     padding-left: 3%;
+    background-color: transparent;
 }
 
 .p-labels {
     padding-left: 3%;
     display: flex;
+    background-color: transparent;
 }
 
 .p-label-icon {
