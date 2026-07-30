@@ -130,13 +130,13 @@ nav .navbar-nav li a:hover {
 #circle-1 {
     animation: MoveUpDown 3s linear infinite;
     margin-top: 2%;
-    right: 6%;
+    right: 8%;
 }
 
 #circle-2 {
     animation: MoveUpDown 3s linear infinite;
     top: 60%;
-    right: 30%;
+    right: 34%;
 }
 
 @keyframes MoveUpDown {
