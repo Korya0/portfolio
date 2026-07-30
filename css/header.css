@@ -129,7 +129,7 @@
 
 .profile-picture {
     right: 5%;
-    bottom: 0;
+    bottom: -5%;
     position: absolute;
 }
 
@@ -137,3 +137,8 @@
 .dp {
     background-color: transparent;
 }
+
+.dp {
+    -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+} 
