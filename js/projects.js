@@ -28,40 +28,40 @@ function getGradientByIndex(index) {
 function mapProjectsData() {
     let projects = [
         {
-            title: "Car Register",
-            image: "",
-            type: "Client Project",
-            desc: "Manage and organize vehicle registration numbers",
+            title: "Imposter",
+            image: "images/projects/imposter.png",
+            type: "Open Source Product",
+            desc: "A social deduction party game with interactive multiplayer gameplay",
             labels: [
                 {
                     title: "GitHub",
-                    link: "https://github.com/Korya0/car_register",
+                    link: "https://github.com/Korya0/imposter",
                 },
                 {
-                    title: "Client Review",
-                    link: "https://mostaql.com/u/Korya/reviews/9091624",
+                    title: "Web App",
+                    link: "https://imposter-psi-rouge.vercel.app/",
                 },
             ],
         },
         {
-            title: "BookFlick",
-            image: "",
-            type: "Open Source",
-            desc: "Discover, explore, and save your favorite books",
+            title: "Hadana Zakia",
+            image: "images/projects/hadana-zakia.png",
+            type: "Product",
+            desc: "Smart nursery management app connecting parents with nurseries",
             labels: [
                 {
-                    title: "GitHub",
-                    link: "https://github.com/Korya0/BookFlick",
+                    title: "App Store",
+                    link: "https://apps.apple.com/us/app/%D8%A7%D9%84%D8%AD%D8%B6%D8%A7%D9%86%D8%A9-%D8%A7%D9%84%D8%B0%D9%83%D9%8A%D8%A9/id6769857559",
                 },
                 {
-                    title: "Demo",
-                    link: "https://www.youtube.com/shorts/2SgHiY1CKmE",
+                    title: "Google Play",
+                    link: "https://play.google.com/store/apps/details?id=com.hadanazakia.app&hl=ar",
                 },
             ],
         },
         {
             title: "Sana",
-            image: "",
+            image: "images/projects/sana.jpg",
             type: "Open Source Product",
             desc: "Your all-in-one daily Islamic companion",
             labels: [
@@ -80,40 +80,40 @@ function mapProjectsData() {
             ],
         },
         {
-            title: "Imposter",
-            image: "",
-            type: "Open Source Product",
-            desc: "A social deduction party game with interactive multiplayer gameplay",
+            title: "Car Register",
+            image: "images/projects/car-register.jpg",
+            type: "Client Project",
+            desc: "Manage and organize vehicle registration numbers",
             labels: [
                 {
                     title: "GitHub",
-                    link: "https://github.com/Korya0/imposter",
+                    link: "https://github.com/Korya0/car_register",
                 },
                 {
-                    title: "Web App",
-                    link: "https://imposter-psi-rouge.vercel.app/",
+                    title: "Client Review",
+                    link: "https://mostaql.com/u/Korya/reviews/9091624",
                 },
             ],
         },
         {
-            title: "Hadana Zakia",
-            image: "",
-            type: "Product",
-            desc: "Smart nursery management app connecting parents with nurseries",
+            title: "BookFlick",
+            image: "images/projects/bookflick.jpg",
+            type: "Open Source",
+            desc: "Discover, explore, and save your favorite books",
             labels: [
                 {
-                    title: "App Store",
-                    link: "https://apps.apple.com/us/app/%D8%A7%D9%84%D8%AD%D8%B6%D8%A7%D9%86%D8%A9-%D8%A7%D9%84%D8%B0%D9%83%D9%8A%D8%A9/id6769857559",
+                    title: "GitHub",
+                    link: "https://github.com/Korya0/BookFlick",
                 },
                 {
-                    title: "Google Play",
-                    link: "https://play.google.com/store/apps/details?id=com.hadanazakia.app&hl=ar",
+                    title: "Demo",
+                    link: "https://www.youtube.com/shorts/2SgHiY1CKmE",
                 },
             ],
         },
         {
             title: "ICO Stories",
-            image: "",
+            image: "images/projects/ico-stories.jpg",
             type: "Client Project",
             desc: "Interactive Arabic educational stories app for children",
             labels: [
@@ -202,9 +202,15 @@ function mapProjectsData() {
             var labelIcon = document.createElement("i");
 
             if (labelTitle === "App" || labelTitle === "App Store") {
-                labelIcon.className = "p-label-icon fa fa-apple";
+                labelIcon = document.createElement("img");
+                labelIcon.className = "p-label-icon p-label-svg";
+                labelIcon.src = "images/svgs/app-store.svg";
+                labelIcon.alt = "App Store";
             } else if (labelTitle === "Play" || labelTitle === "Google Play") {
-                labelIcon.className = "p-label-icon fa fa-google";
+                labelIcon = document.createElement("img");
+                labelIcon.className = "p-label-icon p-label-svg";
+                labelIcon.src = "images/svgs/google-play.svg";
+                labelIcon.alt = "Google Play";
             } else if (
                 labelTitle === "Web" ||
                 labelTitle === "Web App"

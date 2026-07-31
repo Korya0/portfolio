@@ -125,6 +125,12 @@
     transition: 0.3s;
 }
 
+.p-label-svg {
+    width: 14px;
+    height: 14px;
+    filter: brightness(0) saturate(100%) invert(77%) sepia(28%) saturate(757%) hue-rotate(96deg) brightness(101%) contrast(96%);
+}
+
 .p-label {
     margin-right: 3%;
     padding: 4px 12px;
