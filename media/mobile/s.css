@@ -136,4 +136,13 @@
         padding-left: 16px;
     }
 
+    .testimonials-grid {
+        width: 95%;
+        gap: 20px;
+    }
+
+    .testimonial-body {
+        padding: 18px 18px 22px;
+    }
+
 }

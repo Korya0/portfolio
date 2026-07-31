@@ -1,0 +1,230 @@
+/* ─────────────────────────────────────────────────────────────
+   Client Testimonials section
+   Review cards mirror the Projects card visual language
+   ───────────────────────────────────────────────────────────── */
+
+.testimonials-div {
+    padding-top: 5%;
+    padding-bottom: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--bg);
+}
+
+/* ── Rating summary (5.0 / 3 reviews) — quiet, cardless ── */
+.testimonials-summary {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 32px;
+    background-color: transparent;
+}
+
+.summary-stars {
+    display: flex;
+    gap: 5px;
+    background-color: transparent;
+    color: var(--primary-green);
+    font-size: 20px;
+    letter-spacing: 4px;
+}
+
+.summary-stars .fa {
+    background-color: transparent;
+    text-shadow: 0 0 14px rgba(110, 243, 165, 0.45);
+}
+
+.summary-rating {
+    margin: 0;
+    background-color: transparent;
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+/* Thin green divider between the rating and the count */
+.summary-divider {
+    width: 44px;
+    height: 2px;
+    border-radius: 2px;
+    background-color: rgba(110, 243, 165, 0.35);
+}
+
+.summary-count {
+    margin: 0;
+    background-color: transparent;
+    color: var(--text-light);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+/* ── Cards grid ── */
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 330px), 1fr));
+    gap: 28px;
+    width: 85%;
+    max-width: 1200px;
+    margin-top: 36px;
+    background-color: transparent;
+}
+
+/* ── Card — mirrors the Projects card (.project-card) ── */
+.testimonial-card {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-dark);
+    border: 1px solid rgba(110, 243, 165, 0.15);
+    border-top: 3px solid var(--primary-green);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--primary-green);
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.45), 0 0 28px rgba(110, 243, 165, 0.15);
+}
+
+/* Screenshot area — mirrors .p-image */
+.testimonial-media {
+    position: relative;
+    height: 190px;
+    width: 100%;
+    flex-shrink: 0;
+    margin: 0;
+    overflow: hidden;
+    background-color: var(--bg-dark);
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.testimonial-screenshot {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    transition: transform 0.5s ease;
+}
+
+.testimonial-card:hover .testimonial-screenshot {
+    transform: scale(1.06);
+}
+
+/* Bottom gradient overlay — mirrors .p-image::after */
+.testimonial-media::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: linear-gradient(to bottom, transparent, var(--bg-dark));
+    pointer-events: none;
+}
+
+/* "Mostaql" platform badge on the screenshot — mirrors .p-type */
+.testimonial-type {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background-color: rgba(37, 38, 42, 0.85);
+    border: 1px solid rgba(110, 243, 165, 0.45);
+    color: var(--primary-green);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 6px;
+}
+
+/* ── Card body ── */
+.testimonial-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 10px;
+    padding: 14px 16px 18px;
+    background-color: transparent;
+}
+
+.testimonial-title {
+    margin: 0;
+    background-color: transparent;
+    color: white;
+}
+
+/* Mostaql brand icon — tinted green like the other brand SVGs (.p-label-svg) */
+.mostaql-svg {
+    width: 14px;
+    height: 14px;
+    background-color: transparent;
+    filter: brightness(0) saturate(100%) invert(77%) sepia(28%) saturate(757%) hue-rotate(96deg) brightness(101%) contrast(96%);
+}
+
+/* "View Preview" text link — mirrors .exp-link (Experience section) */
+.testimonial-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: auto;
+    color: var(--primary-green);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    background-color: transparent;
+    text-decoration: underline;
+    text-underline-offset: 6px;
+    transition: 0.3s;
+}
+
+.testimonial-link .fa {
+    background-color: transparent;
+    font-size: 11px;
+    transition: transform 0.3s ease;
+}
+
+.testimonial-link:hover {
+    color: var(--primary-green);
+    text-shadow: 0 0 10px rgba(110, 243, 165, 0.4);
+}
+
+.testimonial-link:hover .fa {
+    transform: translate(2px, -2px);
+}
+
+.testimonial-link:focus-visible {
+    outline: 2px solid var(--primary-green);
+    outline-offset: 3px;
+}
+
+/* Small-screen overrides live in media/mobile/s.css & xs.css (site convention) */
+@media only screen and (max-width: 820px) {
+    .testimonials-grid {
+        width: 92%;
+    }
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+    .testimonial-card,
+    .testimonial-screenshot,
+    .testimonial-link,
+    .testimonial-link .fa {
+        transition: none;
+    }
+
+    .testimonial-card:hover {
+        transform: none;
+    }
+}
