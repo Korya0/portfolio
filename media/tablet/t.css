@@ -1,33 +1,31 @@
-@media only screen and (min-width: 401px) and (max-width: 480px) {
-    #brand {
-        font-size: calc(18px + 1vw);
-    }
+/* ── Tablet (481px - 768px) — mirrors mhmz.dev tablet design ── */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
 
+    /* Navbar */
     #app-navbar {
         padding-left: 2%;
-        padding-right: 10%;
+        padding-right: 8%;
     }
 
-    /* ── Hero (first section) — mirrors mhmz.dev mobile design ── */
+    /* ── Hero ── */
 
-    /* Hide the decorative 650px gradient circle — it covers the name & icons on small screens (same as mhmz.dev) */
+    /* Hide the decorative 650px gradient circle — it covers the name & icons on tablets (same as mhmz.dev) */
     .grad-circle {
         display: none;
     }
 
     /* Chip + Preview Resume button visible, like the reference site */
     .tag-wrapper {
+        padding: 4%;
         padding-top: 5%;
-        padding-left: 5%;
     }
 
     .name {
-        padding-left: 5%;
-        padding-top: 2%;
+        padding-left: 4%;
+        padding-bottom: 3%;
     }
 
     .tag {
-        padding-top: 2%;
         padding-left: 4%;
         display: flex;
     }
@@ -46,70 +44,96 @@
         border-bottom: 8px solid transparent;
     }
 
-    /* Social icons under the name */
-    .flexbox-container {
-        padding-top: 5%;
+    .dash {
+        margin-left: 4%;
+        background-color: rgb(148, 148, 148);
+        height: 1px;
+        width: 100px;
     }
 
     .social-icon-wrapper {
-        padding: 3.5%;
-        margin-right: 2%;
+        padding: 2.5%;
+        margin-right: 1%;
     }
 
-    /* Stats — vertical list in normal flow, like the reference site */
+    /* Anchor the absolutely-positioned stats to the hero image wrapper */
+    .image-bg-div {
+        position: relative;
+    }
+
+    /* Stats — vertical list at bottom-left, like the web layout */
+    .stats-div {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        padding-top: 5%;
+        padding-left: 2%;
+        bottom: 5%;
+    }
+
     .stats {
         display: flex;
         background-color: transparent;
     }
 
-    .stats-div {
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-        padding-top: 3%;
-    }
-
-    .stats-data {
-        display: flex;
-        margin-left: 8%;
-        padding-top: 25px;
-    }
-
     .stats-label-column {
-        width: 150px;
         padding-left: 5%;
     }
 
-    /* Photo bottom-right, slightly cut off like the reference site */
+    .stats-label {
+        width: 200px;
+    }
+
+    .stats-data {
+        padding-top: 10%;
+    }
+
+    /* Photo bottom-right */
     .profile-picture {
-        right: -15%;
         float: right;
-        padding-right: 0;
         position: relative;
+        right: 0%;
     }
 
     .dp {
-        height: 300px;
+        height: 450px;
     }
 
     .space {
-        padding-top: 0px;
+        padding-top: 15%;
     }
 
     /* ── Tech stack ── */
     .tech-stack {
         flex-direction: column;
         align-items: center;
-        justify-content: center;
     }
 
     .section-text {
         width: 100%;
     }
 
-    /* Hide the stack illustration image on mobile — saves vertical space */
+    /* Hide the stack illustration image on tablet — saves vertical space */
     .stack-illustration {
         display: none;
+    }
+
+    /* ── Projects — 2 cards per row when it fits, 1 per row on narrow tablets ── */
+    .projects {
+        padding-left: 3%;
+        padding-right: 3%;
+    }
+
+    .project-card {
+        flex: 1 1 300px;
+        max-width: 350px;
+        margin: 1em;
+    }
+
+    /* ── Testimonials ── (width handled by css/testimonials.css @max-width:820px) */
+    .testimonials-grid {
+        gap: 22px;
     }
 
     /* ── Experience — full-width cards, no timeline ── */
@@ -132,7 +156,7 @@
 
     .exp-card {
         width: 100%;
-        padding: 16px;
+        padding: 18px;
     }
 
     .exp-card-header {
@@ -150,17 +174,7 @@
         padding-left: 16px;
     }
 
-    /* ── Testimonials ── */
-    .testimonials-grid {
-        width: 95%;
-        gap: 20px;
-    }
-
-    .testimonial-body {
-        padding: 18px 18px 22px;
-    }
-
-    /* Decorative floating circles add clutter on small screens */
+    /* Decorative floating circles — hidden on tablets (same as mhmz.dev) */
     #circle-1,
     #circle-2 {
         display: none;

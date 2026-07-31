@@ -7,6 +7,14 @@
         font-size: calc(14px + 1vw);
     }
 
+    /* ── Hero (first section) — mirrors mhmz.dev xs design ── */
+
+    /* Hide the decorative 650px gradient circle — it covers the name & icons on small screens (same as mhmz.dev) */
+    .grad-circle {
+        display: none;
+    }
+
+    /* Chip + Preview Resume button visible, like the reference site */
     .tag-wrapper {
         padding: 4%;
         padding-top: 5%;
@@ -41,6 +49,7 @@
         padding: 3%;
     }
 
+    /* Stats — vertical list in normal flow, like the reference site */
     .stats {
         display: flex;
         background-color: transparent;
@@ -64,6 +73,7 @@
         padding-left: 3%;
     }
 
+    /* Photo bottom-right, slightly cut off like the reference site */
     .profile-picture {
         float: right;
         position: relative;
@@ -79,6 +89,7 @@
         padding-top: 0px;
     }
 
+    /* ── Tech stack ── */
     .tech-stack {
         flex-direction: column;
         align-items: center;
@@ -89,14 +100,12 @@
         width: 100%;
     }
 
+    /* Hide the stack illustration image on mobile — saves vertical space */
     .stack-illustration {
-        padding: 0px;
+        display: none;
     }
 
-    #stack-illustration {
-        height: 300px;
-    }
-
+    /* ── Experience — full-width cards, no timeline ── */
     .exp-timeline {
         padding-left: 0;
         width: 98%;
@@ -134,6 +143,7 @@
         padding-left: 14px;
     }
 
+    /* ── Testimonials ── */
     .testimonials-grid {
         width: 98%;
         gap: 18px;
@@ -143,4 +153,9 @@
         padding: 18px 18px 22px;
     }
 
+    /* Decorative floating circles add clutter on small screens */
+    #circle-1,
+    #circle-2 {
+        display: none;
+    }
 }
