@@ -42,13 +42,16 @@
     justify-content: center;
     align-items: center;
     border-radius: 6px;
-    background-color: rgba(110, 243, 165, 0.08);
-    border: 1px solid rgba(110, 243, 165, 0.3);
+    /* Solid dark backdrop so the badge text stays readable over any image */
+    background-color: rgba(37, 38, 42, 0.9);
+    border: 1px solid rgba(110, 243, 165, 0.45);
     position: absolute;
     top: 10px;
     left: 10px;
+    z-index: 2;
     color: var(--primary-green);
     font-size: 11px;
+    font-weight: 600;
     padding: 3px 10px;
     transition: 0.3s;
 }
