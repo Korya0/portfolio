@@ -101,22 +101,10 @@ function createCardHeader(job) {
 }
 
 function createOrgName(job) {
+    // Plain text on purpose — the .exp-link button below already carries the link
     const orgName = document.createElement("h2");
     orgName.className = "heading2 exp-org";
-
-    if (!job.link) {
-        orgName.textContent = job.org;
-        return orgName;
-    }
-
-    const anchor = document.createElement("a");
-    anchor.className = "exp-org-link";
-    anchor.href = job.link;
-    anchor.target = "_blank";
-    anchor.rel = "noopener noreferrer";
-    anchor.textContent = job.org;
-    orgName.appendChild(anchor);
-
+    orgName.textContent = job.org;
     return orgName;
 }
 

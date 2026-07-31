@@ -118,6 +118,27 @@
     font-size: 24px;
     font-weight: 400;
     background-color: transparent;
+    transition: .3s;
+}
+
+/* ── Interactive stats (count-up + scroll) ── */
+.stats-data {
+    cursor: pointer;
+    border-radius: 8px;
+    transition: .3s;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.stats-data:hover .value,
+.stats-data:focus-visible .value {
+    color: var(--primary-green);
+    text-shadow: 0 0 12px rgba(110, 243, 165, 0.5);
+}
+
+.stats-data:focus-visible {
+    outline: 2px solid var(--primary-green);
+    outline-offset: 3px;
 }
 
 .stats-label-column {

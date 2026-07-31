@@ -86,20 +86,6 @@
     color: var(--primary-green);
 }
 
-/* Clickable org name (e.g. NTI → certificate) */
-.exp-org-link {
-    color: var(--primary-green);
-    background-color: transparent;
-    text-decoration: none;
-    transition: .3s;
-}
-
-.exp-org-link:hover {
-    text-decoration: underline;
-    text-underline-offset: 4px;
-    text-shadow: 0 0 10px rgba(110, 243, 165, 0.35);
-}
-
 /* Certificate link inside the experience card */
 .exp-link {
     display: inline-flex;

@@ -43,9 +43,9 @@ function createSocialLink(social) {
 }
 
 const STATS = [
-    { value: "1+", label1: "Year", label2: "Experience" },
-    { value: "6+", label1: "Apps Built", label2: "" },
-    { value: "3", label1: "Client", label2: "Projects" },
+    { value: "1+", label1: "Year", label2: "Experience", target: "#exp" },
+    { value: "6+", label1: "Apps Built", label2: "", target: "#projects-div" },
+    { value: "3", label1: "Client", label2: "Projects", target: "#testimonials-div" },
 ];
 
 function renderStats() {
@@ -54,6 +54,9 @@ function renderStats() {
     STATS.forEach(function (stat) {
         const statDiv = document.createElement("div");
         statDiv.className = "stats stats-data";
+        statDiv.setAttribute("role", "button");
+        statDiv.setAttribute("tabindex", "0");
+        statDiv.setAttribute("aria-label", stat.label1 + " " + stat.label2 + ": " + stat.value);
 
         const valueElement = document.createElement("h1");
         valueElement.className = "value";
@@ -72,5 +75,70 @@ function renderStats() {
         statDiv.appendChild(valueElement);
         statDiv.appendChild(labelColumn);
         statsContainer.appendChild(statDiv);
+
+        attachStatInteractions(statDiv, valueElement, stat);
     });
+}
+
+function attachStatInteractions(statDiv, valueElement, stat) {
+    const parsed = parseStatValue(stat.value);
+
+    function runCountUp() {
+        animateCountUp(valueElement, parsed.number, parsed.suffix);
+    }
+
+    // Hover → count-up animation
+    statDiv.addEventListener("mouseenter", runCountUp);
+
+    // Click → count-up + smooth scroll to the linked section
+    statDiv.addEventListener("click", function () {
+        runCountUp();
+        if (stat.target) scrollToSection(stat.target);
+    });
+
+    // Keyboard accessibility (Enter / Space)
+    statDiv.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            runCountUp();
+            if (stat.target) scrollToSection(stat.target);
+        }
+    });
+}
+
+function parseStatValue(value) {
+    const match = String(value).match(/^(\d+)(.*)$/);
+    return { number: match ? parseInt(match[1], 10) : 0, suffix: match ? match[2] : "" };
+}
+
+function animateCountUp(element, target, suffix) {
+    const duration = 900;
+    const startTime = performance.now();
+
+    // Cancel any running animation on the same element to avoid overlapping loops
+    if (element._countUpFrame) {
+        cancelAnimationFrame(element._countUpFrame);
+    }
+
+    function frame(now) {
+        const progress = Math.min((now - startTime) / duration, 1);
+        // Ease-out curve for a snappy start and soft landing
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const current = Math.round(target * eased);
+        element.textContent = current + suffix;
+
+        if (progress < 1) {
+            element._countUpFrame = requestAnimationFrame(frame);
+        } else {
+            delete element._countUpFrame;
+        }
+    }
+
+    element._countUpFrame = requestAnimationFrame(frame);
+}
+
+function scrollToSection(target) {
+    const section = document.querySelector(target);
+    if (!section) return;
+    section.scrollIntoView({ behavior: "smooth", block: "start" });
 }
