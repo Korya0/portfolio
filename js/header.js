@@ -23,14 +23,9 @@ const SOCIAL_LINKS = [
 
 function renderSocialLinks() {
     const headerContainer = document.getElementById("social-handles");
-    const contactContainer = document.getElementById("social-contact-icons");
 
     SOCIAL_LINKS.forEach(function (social) {
         headerContainer.appendChild(createSocialLink(social));
-
-        const contactLink = createSocialLink(social);
-        contactLink.style.padding = "3%";
-        contactContainer.appendChild(contactLink);
     });
 }
 

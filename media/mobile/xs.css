@@ -41,14 +41,6 @@
         padding: 3%;
     }
 
-    .chat {
-        padding-top: 10%;
-    }
-
-    #chat-btn {
-        padding: 4%;
-    }
-
     .stats {
         display: flex;
         background-color: transparent;
@@ -142,11 +134,4 @@
         padding-left: 14px;
     }
 
-    .contact-card {
-        width: 330px;
-    }
-
-    #meet-btn {
-        margin-bottom: 20px;
-    }
 }

@@ -89,9 +89,6 @@
     <link rel="stylesheet" href="css/techStack.css">
     <link rel="stylesheet" href="css/projects.css">
     <link rel="stylesheet" href="css/exp.css">
-    <link rel="stylesheet" href="css/contact.css">
-
-    <link rel="stylesheet" href="components/currentDate.css">
 
     <!-- AOS animations -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
@@ -146,9 +143,7 @@
                 <li class="nav-item navbar-action">
                     <a href="#exp" class="nav-link">Experience</a>
                 </li>
-                <li class="nav-item navbar-action">
-                    <a href="#contact-div" class="nav-link">Get in touch</a>
-                </li>
+
             </ul>
         </div>
     </nav>
@@ -164,6 +159,11 @@
             <div id="chip">
                 <span id="tag-label" class="label tag-title"></span>
             </div>
+
+            <button type="button" onclick="onMeetClick()" class="btn" id="header-meet-btn">
+                <i id="header-meet-icon" class="fa fa-file-text"></i>
+                <span id="header-meet-btn-text">Preview Resume</span>
+            </button>
         </div>
 
         <div class="name">
@@ -180,13 +180,6 @@
 
         <div id="social-handles" class="flexbox-container">
             <div class="dash"></div>
-            <a href="https://rebrand.ly/MahmoudCV" target="_blank" class="social-icon-wrapper" id="cv-btn">
-                <i class="fa fa-file-text social-icon"></i>
-            </a>
-        </div>
-
-        <div class="chat">
-            <a href="#contact-div" class="body2" id="chat-btn">LET'S CHAT!</a>
         </div>
 
         <div class="container-fluid image-bg-div">
@@ -264,39 +257,6 @@
         <div id="exp-timeline" class="exp-timeline"></div>
     </div>
 
-    <div id="contact-div" class="container-fluid contact-div">
-        <p class="section-title">Get in touch</p>
-        <p class="section-text text-center">
-            Let's build something together :)
-        </p>
-
-        <div class="contact-row">
-            <div class="current-date-div">
-                <div class="current-date-container">
-                    <div class="current-month">
-                        <span id="month"></span>
-                    </div>
-                    <div class="current-date">
-                        <span id="date"></span>
-                    </div>
-                    <div class="current-day">
-                        <span id="day"></span>
-                    </div>
-                </div>
-
-                <button type="button" onclick="onMeetClick()" class="btn btn-success" id="meet-btn">
-                    <i id="meet-icon" class="fa fa-file-text"></i>
-                    <span id="meet-btn-text">Preview Resume</span>
-                </button>
-            </div>
-
-            <div id="contact-info-div" class="contact-info-div">
-                <div class="line"></div>
-                <div id="social-contact-icons" class="social-contact-icons"></div>
-
-            </div>
-        </div>
-    </div>
 
     <script src="js/header.js"></script>
     <script src="js/typeWriter.js"></script>

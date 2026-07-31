@@ -68,15 +68,6 @@
         width: 15em;
     }
 
-    .chat {
-        padding-top: 3%;
-    }
-
-    #chat-btn {
-        padding-left: 10%;
-        font-size: 28px;
-    }
-
     .stats-div {
         position: absolute;
         padding-left: 7%;

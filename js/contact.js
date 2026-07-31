@@ -1,88 +1,69 @@
-// Contact section rendering: contact cards and current date
+// Header contact icons: phone and email, rendered next to the social icons
 document.addEventListener("DOMContentLoaded", function () {
-    renderContactCards();
-    renderCurrentDate();
+    renderHeaderContact();
 });
 
 const CONTACT_ITEMS = [
     {
         icon: "fa fa-phone",
-        label: "+20 106 517 1195",
-        link: "https://wa.me/201065171195?text=Hello%20Mahmoud%2C%20I%20came%20across%20your%20portfolio%20and%20would%20love%20to%20connect%20with%20you%21",
+        url: "https://wa.me/201065171195?text=Hello%20Mahmoud%2C%20I%20came%20across%20your%20portfolio%20and%20would%20love%20to%20connect%20with%20you%21",
+        ariaLabel: "Phone",
     },
     {
         icon: "fa fa-envelope",
-        label: "mahmoudmohamed01559@gmail.com",
-        link: "#",
+        url: "#",
         copyText: "mahmoudmohamed01559@gmail.com",
+        ariaLabel: "Email",
     },
 ];
 
-function renderContactCards() {
-    const container = document.getElementById("contact-info-div");
+function renderHeaderContact() {
+    const container = document.getElementById("social-handles");
+    if (!container) return;
 
     CONTACT_ITEMS.forEach(function (item) {
-        container.insertBefore(createContactCard(item), container.firstChild);
+        container.appendChild(createContactIcon(item));
     });
 }
 
-function createContactCard(item) {
-    const card = document.createElement("a");
-    card.className = "contact-card";
-    card.href = item.link;
+function createContactIcon(item) {
+    const anchor = document.createElement("a");
+    anchor.className = "social-icon-wrapper";
+    anchor.href = item.url;
+    anchor.setAttribute("aria-label", item.ariaLabel);
 
     if (item.copyText) {
-        card.addEventListener("click", function (event) {
+        anchor.addEventListener("click", function (event) {
             event.preventDefault();
-            copyToClipboard(item.copyText, card);
+            copyToClipboard(item.copyText, anchor);
         });
     } else {
-        card.target = "_blank";
+        anchor.target = "_blank";
     }
 
     const icon = document.createElement("i");
-    icon.className = "contact-card-icon " + item.icon;
+    icon.className = "social-icon " + item.icon;
+    anchor.appendChild(icon);
 
-    const label = document.createElement("span");
-    label.className = "body2 contact-label";
-    label.textContent = item.label;
-
-    const chevron = document.createElement("i");
-    chevron.className = "contact-card-chevron fa fa-chevron-right";
-
-    card.appendChild(icon);
-    card.appendChild(label);
-    card.appendChild(chevron);
-    return card;
+    return anchor;
 }
 
-function copyToClipboard(text, card) {
+function copyToClipboard(text, anchor) {
     navigator.clipboard.writeText(text).then(function () {
-        const labelElement = card.querySelector(".contact-label");
-        const originalText = labelElement.textContent;
+        const iconElement = anchor.querySelector(".social-icon");
+        const originalClass = iconElement.className;
+        const originalColor = iconElement.style.color;
 
-        labelElement.textContent = "Copied!";
-        labelElement.style.color = "var(--primary-green)";
+        iconElement.className = "social-icon fa fa-check";
+        iconElement.style.color = "white";
 
         setTimeout(function () {
-            labelElement.textContent = originalText;
-            labelElement.style.color = "";
+            iconElement.className = originalClass;
+            iconElement.style.color = originalColor;
         }, 1000);
     });
 }
 
 function onMeetClick() {
     window.open("https://rebrand.ly/MahmoudCV", "_blank");
-}
-
-function renderCurrentDate() {
-    const current = new Date();
-
-    const monthName = current.toLocaleDateString("en-US", { month: "long" });
-    const dayNumber = current.getDate();
-    const dayName = current.toLocaleDateString("en-US", { weekday: "long" });
-
-    document.getElementById("month").textContent = monthName;
-    document.getElementById("date").textContent = dayNumber;
-    document.getElementById("day").textContent = dayName;
 }
