@@ -6,6 +6,8 @@ const EXPERIENCE = [
         org: "Freelance",
         position: "Flutter Developer",
         duration: "Aug 2025 – Present",
+        link: "https://mostaql.com/u/Korya/reviews",
+        linkLabel: "View Profile",
         technologies: [
             "Flutter", "Dart", "Clean Architecture", "Cubit / BLoC", "Supabase",
             "Firebase", "REST APIs", "Hive", "Git", "GitHub", "Unit Testing",
@@ -28,6 +30,8 @@ const EXPERIENCE = [
         org: "NTI",
         position: "Flutter Developer Intern",
         duration: "May 2025",
+        link: "https://drive.google.com/file/d/1DiA9E64teOhpFkgzaA5GjxVm2P1-udQ-/view?usp=drive_link",
+        linkLabel: "View Certificate",
         technologies: [
             "Flutter", "Firebase", "REST APIs", "Cubit", "Git", "Team Collaboration",
         ],
@@ -74,10 +78,7 @@ function createCardHeader(job) {
     const meta = document.createElement("div");
     meta.className = "exp-meta";
 
-    const orgName = document.createElement("h2");
-    orgName.className = "heading2 exp-org";
-    orgName.textContent = job.org;
-
+    const orgName = createOrgName(job);
     const position = document.createElement("span");
     position.className = "label exp-position";
     position.textContent = job.position;
@@ -90,9 +91,49 @@ function createCardHeader(job) {
     meta.appendChild(position);
     meta.appendChild(session);
 
+    if (job.link) {
+        meta.appendChild(createCertificateLink(job));
+    }
+
     header.appendChild(meta);
     header.appendChild(createTechPills(job.technologies));
     return header;
+}
+
+function createOrgName(job) {
+    const orgName = document.createElement("h2");
+    orgName.className = "heading2 exp-org";
+
+    if (!job.link) {
+        orgName.textContent = job.org;
+        return orgName;
+    }
+
+    const anchor = document.createElement("a");
+    anchor.className = "exp-org-link";
+    anchor.href = job.link;
+    anchor.target = "_blank";
+    anchor.rel = "noopener noreferrer";
+    anchor.textContent = job.org;
+    orgName.appendChild(anchor);
+
+    return orgName;
+}
+
+function createCertificateLink(job) {
+    const link = document.createElement("a");
+    link.className = "exp-link";
+    link.href = job.link;
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+
+    const icon = document.createElement("i");
+    icon.className = "fa fa-external-link";
+    icon.setAttribute("aria-hidden", "true");
+
+    link.appendChild(icon);
+    link.appendChild(document.createTextNode(job.linkLabel || "View Certificate"));
+    return link;
 }
 
 function createTechPills(technologies) {
