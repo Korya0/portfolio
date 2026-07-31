@@ -13,43 +13,30 @@
     background-color: var(--bg-dark);
 }
 
-/* ── Rating summary (5.0 / 3 reviews) — quiet, cardless ── */
+/* ── Rating summary (5.0 / 3 reviews) — one compact line ── */
 .testimonials-summary {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    gap: 10px;
+    justify-content: center;
+    gap: 14px;
     margin-top: 32px;
     background-color: transparent;
-}
-
-.summary-stars {
-    display: flex;
-    gap: 5px;
-    background-color: transparent;
-    color: var(--primary-green);
-    font-size: 20px;
-    letter-spacing: 4px;
-}
-
-.summary-stars .fa {
-    background-color: transparent;
-    text-shadow: 0 0 14px rgba(110, 243, 165, 0.45);
 }
 
 .summary-rating {
     margin: 0;
     background-color: transparent;
     color: white;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 700;
     letter-spacing: 0.5px;
 }
 
-/* Thin green divider between the rating and the count */
+/* Thin vertical green divider between the rating and the count */
 .summary-divider {
-    width: 44px;
-    height: 2px;
+    width: 2px;
+    height: 18px;
     border-radius: 2px;
     background-color: rgba(110, 243, 165, 0.35);
 }
