@@ -1,21 +1,5 @@
 <div align="center">
 
-<!-- Badges at Top -->
-<p>
-  <a href="https://github.com/Korya0/portfolio/graphs/contributors">
-    <img src="https://img.shields.io/github/contributors/Korya0/portfolio" alt="contributors" />
-  </a>
-  <a href="https://github.com/Korya0/portfolio/commits/main">
-    <img src="https://img.shields.io/github/last-commit/Korya0/portfolio" alt="last update" />
-  </a>
-  <a href="https://github.com/Korya0/portfolio/stargazers">
-    <img src="https://img.shields.io/github/stars/Korya0/portfolio" alt="stars" />
-  </a>
-  <a href="https://github.com/Korya0/portfolio">
-    <img src="https://img.shields.io/github/repo-size/Korya0/portfolio" alt="repo size" />
-  </a>
-</p>
-
 <!-- Typing Logo (brand green = #6EF3A5) -->
 <img src="https://readme-typing-svg.herokuapp.com/?font=Inter&weight=800&size=50&center=true&vCenter=true&width=600&height=100&duration=4000&color=6EF3A5&lines=Mahmoud+Portfolio"/>
 
