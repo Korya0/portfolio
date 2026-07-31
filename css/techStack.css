@@ -12,7 +12,7 @@
 .stack-illustration,
 .tech-row,
 .label-stack,
-#tech-stack-text,
+.section-text,
 #stack-illustration {
     background-color: transparent;
 }
@@ -25,8 +25,6 @@
     border-radius: 6px;
     background-color: rgba(110, 243, 165, 0.08);
     border: 1px solid rgba(110, 243, 165, 0.3);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
 }
 
 .tech-icon {
@@ -44,14 +42,16 @@
     padding-left: 10px;
 }
 
-#tech-stack-title {
+/* Shared styles for section headings across the page */
+.section-title {
     background-color: transparent;
     color: var(--primary-green);
     font-weight: bold;
     font-size: 22px;
 }
 
-#tech-stack-text {
+.section-text {
+    background-color: transparent;
     color: white;
     width: 400px;
     line-height: 20px;

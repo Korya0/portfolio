@@ -1,6 +1,5 @@
-document.addEventListener("DOMContentLoaded", function () {
-    mapProjectsData();
-});
+// Projects rendering
+document.addEventListener("DOMContentLoaded", renderProjects);
 
 const GRADIENT_PALETTES = [
     ["#667eea", "#764ba2"],
@@ -11,10 +10,199 @@ const GRADIENT_PALETTES = [
     ["#a18cd1", "#fbc2eb"],
 ];
 
+const LABEL_ICONS = {
+    "App Store": { type: "image", src: "images/svgs/app-store.svg" },
+    "Google Play": { type: "image", src: "images/svgs/google-play.svg" },
+    "Web App": "fa fa-globe",
+    "Demo": "fa fa-youtube-play",
+    "GitHub": "fa fa-github",
+    "Client Review": "fa fa-star",
+};
+
+const PROJECTS = [
+    {
+        title: "Imposter",
+        image: "images/projects/imposter.png",
+        type: "Open Source Product",
+        desc: "A social deduction party game with interactive multiplayer gameplay",
+        labels: [
+            { title: "GitHub", link: "https://github.com/Korya0/imposter" },
+            { title: "Web App", link: "https://imposter-psi-rouge.vercel.app/" },
+        ],
+    },
+    {
+        title: "Hadana Zakia",
+        image: "images/projects/hadana-zakia.png",
+        type: "Product",
+        desc: "Smart nursery management app connecting parents with nurseries",
+        labels: [
+            { title: "App Store", link: "https://apps.apple.com/us/app/%D8%A7%D9%84%D8%AD%D8%B6%D8%A7%D9%86%D8%A9-%D8%A7%D9%84%D8%B0%D9%83%D9%8A%D8%A9/id6769857559" },
+            { title: "Google Play", link: "https://play.google.com/store/apps/details?id=com.hadanazakia.app&hl=ar" },
+        ],
+    },
+    {
+        title: "Sana",
+        image: "images/projects/sana.jpg",
+        type: "Open Source Product",
+        desc: "Your all-in-one daily Islamic companion",
+        labels: [
+            { title: "GitHub", link: "https://github.com/Korya0/Sana" },
+            { title: "Web App", link: "https://sana0.vercel.app/" },
+            { title: "Google Play", link: "https://play.google.com/store/apps/details?id=com.sana.muslim.app" },
+        ],
+    },
+    {
+        title: "Car Register",
+        image: "images/projects/car-register.jpg",
+        type: "Client Project",
+        desc: "Manage and organize vehicle registration numbers",
+        labels: [
+            { title: "GitHub", link: "https://github.com/Korya0/car_register" },
+            { title: "Client Review", link: "https://mostaql.com/u/Korya/reviews/9091624" },
+        ],
+    },
+    {
+        title: "BookFlick",
+        image: "images/projects/bookflick.jpg",
+        type: "Open Source",
+        desc: "Discover, explore, and save your favorite books",
+        labels: [
+            { title: "GitHub", link: "https://github.com/Korya0/BookFlick" },
+            { title: "Demo", link: "https://www.youtube.com/shorts/2SgHiY1CKmE" },
+        ],
+    },
+    {
+        title: "ICO Stories",
+        image: "images/projects/ico-stories.jpg",
+        type: "Client Project",
+        desc: "Interactive Arabic educational stories app for children",
+        labels: [
+            { title: "GitHub", link: "https://github.com/Korya0/ico_story_app" },
+            { title: "Client Review", link: "https://mostaql.com/u/Korya/reviews/9118016" },
+        ],
+    },
+];
+
+function renderProjects() {
+    const container = document.getElementById("projects");
+    container.innerHTML = "";
+
+    PROJECTS.forEach(function (project, index) {
+        container.appendChild(createProjectCard(project, index));
+    });
+}
+
+function createProjectCard(project, index) {
+    const card = document.createElement("div");
+    card.className = "project-card";
+
+    card.appendChild(createProjectImage(project, index));
+    card.appendChild(createProjectTitle(project.title));
+
+    if (project.desc) {
+        card.appendChild(createProjectDescription(project.desc));
+    }
+
+    card.appendChild(createProjectLabels(project.labels));
+    return card;
+}
+
+function createProjectImage(project, index) {
+    const imageDiv = document.createElement("div");
+    imageDiv.className = "p-image";
+
+    const typeLabel = document.createElement("div");
+    typeLabel.className = "label p-type";
+    typeLabel.textContent = project.type;
+    imageDiv.appendChild(typeLabel);
+
+    if (project.image) {
+        const image = document.createElement("img");
+        image.className = "p-image-bg";
+        image.src = project.image;
+        image.alt = project.title;
+        image.onerror = function () {
+            image.remove();
+            showInitialsFallback(imageDiv, project.title, index);
+        };
+        imageDiv.appendChild(image);
+    } else {
+        showInitialsFallback(imageDiv, project.title, index);
+    }
+
+    return imageDiv;
+}
+
+function showInitialsFallback(imageDiv, title, index) {
+    imageDiv.style.background = getGradientByIndex(index);
+    imageDiv.style.display = "flex";
+    imageDiv.style.alignItems = "center";
+    imageDiv.style.justifyContent = "center";
+
+    const initials = document.createElement("span");
+    initials.className = "p-image-initials";
+    initials.textContent = getInitials(title);
+    imageDiv.appendChild(initials);
+}
+
+function createProjectTitle(title) {
+    const titleElement = document.createElement("p");
+    titleElement.className = "body1 p-title";
+    titleElement.textContent = title;
+    return titleElement;
+}
+
+function createProjectDescription(desc) {
+    const descElement = document.createElement("p");
+    descElement.className = "p-desc";
+    descElement.textContent = desc;
+    return descElement;
+}
+
+function createProjectLabels(labels) {
+    const labelsDiv = document.createElement("div");
+    labelsDiv.className = "p-labels";
+
+    labels.forEach(function (label) {
+        const link = document.createElement("a");
+        link.className = "p-label";
+        link.href = label.link;
+        link.target = "_blank";
+
+        link.appendChild(createLabelIcon(label.title));
+
+        const labelText = document.createElement("span");
+        labelText.className = "label p-label-text";
+        labelText.textContent = label.title;
+        link.appendChild(labelText);
+
+        labelsDiv.appendChild(link);
+    });
+
+    return labelsDiv;
+}
+
+function createLabelIcon(labelTitle) {
+    const iconConfig = LABEL_ICONS[labelTitle];
+    if (!iconConfig) return document.createElement("i");
+
+    if (iconConfig.type === "image") {
+        const image = document.createElement("img");
+        image.className = "p-label-icon p-label-svg";
+        image.src = iconConfig.src;
+        image.alt = labelTitle;
+        return image;
+    }
+
+    const icon = document.createElement("i");
+    icon.className = "p-label-icon " + iconConfig;
+    return icon;
+}
+
 function getInitials(title) {
     return title
         .split(" ")
-        .map((word) => word[0])
+        .map(function (word) { return word[0]; })
         .join("")
         .substring(0, 2)
         .toUpperCase();
@@ -22,234 +210,5 @@ function getInitials(title) {
 
 function getGradientByIndex(index) {
     const palette = GRADIENT_PALETTES[index % GRADIENT_PALETTES.length];
-    return `linear-gradient(135deg, ${palette[0]}, ${palette[1]})`;
-}
-
-function mapProjectsData() {
-    let projects = [
-        {
-            title: "Imposter",
-            image: "images/projects/imposter.png",
-            type: "Open Source Product",
-            desc: "A social deduction party game with interactive multiplayer gameplay",
-            labels: [
-                {
-                    title: "GitHub",
-                    link: "https://github.com/Korya0/imposter",
-                },
-                {
-                    title: "Web App",
-                    link: "https://imposter-psi-rouge.vercel.app/",
-                },
-            ],
-        },
-        {
-            title: "Hadana Zakia",
-            image: "images/projects/hadana-zakia.png",
-            type: "Product",
-            desc: "Smart nursery management app connecting parents with nurseries",
-            labels: [
-                {
-                    title: "App Store",
-                    link: "https://apps.apple.com/us/app/%D8%A7%D9%84%D8%AD%D8%B6%D8%A7%D9%86%D8%A9-%D8%A7%D9%84%D8%B0%D9%83%D9%8A%D8%A9/id6769857559",
-                },
-                {
-                    title: "Google Play",
-                    link: "https://play.google.com/store/apps/details?id=com.hadanazakia.app&hl=ar",
-                },
-            ],
-        },
-        {
-            title: "Sana",
-            image: "images/projects/sana.jpg",
-            type: "Open Source Product",
-            desc: "Your all-in-one daily Islamic companion",
-            labels: [
-                {
-                    title: "GitHub",
-                    link: "https://github.com/Korya0/Sana",
-                },
-                {
-                    title: "Web App",
-                    link: "https://sana0.vercel.app/",
-                },
-                {
-                    title: "Google Play",
-                    link: "https://play.google.com/store/apps/details?id=com.sana.muslim.app",
-                },
-            ],
-        },
-        {
-            title: "Car Register",
-            image: "images/projects/car-register.jpg",
-            type: "Client Project",
-            desc: "Manage and organize vehicle registration numbers",
-            labels: [
-                {
-                    title: "GitHub",
-                    link: "https://github.com/Korya0/car_register",
-                },
-                {
-                    title: "Client Review",
-                    link: "https://mostaql.com/u/Korya/reviews/9091624",
-                },
-            ],
-        },
-        {
-            title: "BookFlick",
-            image: "images/projects/bookflick.jpg",
-            type: "Open Source",
-            desc: "Discover, explore, and save your favorite books",
-            labels: [
-                {
-                    title: "GitHub",
-                    link: "https://github.com/Korya0/BookFlick",
-                },
-                {
-                    title: "Demo",
-                    link: "https://www.youtube.com/shorts/2SgHiY1CKmE",
-                },
-            ],
-        },
-        {
-            title: "ICO Stories",
-            image: "images/projects/ico-stories.jpg",
-            type: "Client Project",
-            desc: "Interactive Arabic educational stories app for children",
-            labels: [
-                {
-                    title: "GitHub",
-                    link: "https://github.com/Korya0/ico_story_app",
-                },
-                {
-                    title: "Client Review",
-                    link: "https://mostaql.com/u/Korya/reviews/9118016",
-                },
-            ],
-        },
-    ];
-
-    var projectsDiv = document.getElementById("projects");
-    projectsDiv.innerHTML = "";
-
-    for (var i = 0; i < projects.length; i++) {
-        var project = projects[i];
-        var title = project.title;
-        var type = project.type;
-        var image = project.image;
-        var desc = project.desc || "";
-
-        var card = document.createElement("div");
-        card.className = "project-card";
-
-        var imageDiv = document.createElement("div");
-        imageDiv.className = "p-image";
-
-        var projectLabel = document.createElement("div");
-        projectLabel.className = "label p-type";
-        projectLabel.innerHTML = type;
-
-        imageDiv.appendChild(projectLabel);
-
-        if (image && image !== "") {
-            var projectImg = document.createElement("img");
-            projectImg.className = "p-image-bg";
-            projectImg.src = image;
-            projectImg.alt = title;
-            projectImg.onerror = function () {
-                this.style.display = "none";
-                var parent = this.parentNode;
-                parent.style.background = getGradientByIndex(i);
-                parent.style.display = "flex";
-                parent.style.alignItems = "center";
-                parent.style.justifyContent = "center";
-                var initialsEl = document.createElement("span");
-                initialsEl.className = "p-image-initials";
-                initialsEl.innerHTML = getInitials(title);
-                parent.appendChild(initialsEl);
-            };
-            imageDiv.appendChild(projectImg);
-        } else {
-            // Gradient placeholder with initials
-            imageDiv.style.background = getGradientByIndex(i);
-            imageDiv.style.display = "flex";
-            imageDiv.style.alignItems = "center";
-            imageDiv.style.justifyContent = "center";
-
-            var initials = document.createElement("span");
-            initials.className = "p-image-initials";
-            initials.innerHTML = getInitials(title);
-            imageDiv.appendChild(initials);
-        }
-
-        var projectName = document.createElement("p");
-        projectName.className = "body1 p-title";
-        projectName.innerHTML = title;
-
-        var projectDesc = document.createElement("p");
-        projectDesc.className = "p-desc";
-        projectDesc.innerHTML = desc;
-
-        var labels = document.createElement("div");
-        labels.className = "p-labels";
-
-        for (var j = 0; j < project.labels.length; j++) {
-            var labelTitle = project.labels[j]["title"];
-            var link = project.labels[j]["link"];
-
-            var label = document.createElement("a");
-            label.className = "p-label";
-            var labelIcon = document.createElement("i");
-
-            if (labelTitle === "App" || labelTitle === "App Store") {
-                labelIcon = document.createElement("img");
-                labelIcon.className = "p-label-icon p-label-svg";
-                labelIcon.src = "images/svgs/app-store.svg";
-                labelIcon.alt = "App Store";
-            } else if (labelTitle === "Play" || labelTitle === "Google Play") {
-                labelIcon = document.createElement("img");
-                labelIcon.className = "p-label-icon p-label-svg";
-                labelIcon.src = "images/svgs/google-play.svg";
-                labelIcon.alt = "Google Play";
-            } else if (
-                labelTitle === "Web" ||
-                labelTitle === "Web App"
-            ) {
-                labelIcon.className = "p-label-icon fa fa-globe";
-            } else if (labelTitle === "YouTube" || labelTitle === "Demo") {
-                labelIcon.className = "p-label-icon fa fa-youtube-play";
-            } else if (labelTitle === "GitHub") {
-                labelIcon.className = "p-label-icon fa fa-github";
-            } else if (labelTitle === "Package") {
-                labelIcon.className = "p-label-icon material-icons";
-                labelIcon.innerHTML = "widgets";
-                labelIcon.style.fontSize = "16px";
-            } else if (labelTitle === "Docs") {
-                labelIcon.className = "p-label-icon fa fa-book";
-            } else if (labelTitle === "Client Review") {
-                labelIcon.className = "p-label-icon fa fa-star";
-            }
-
-            var labelText = document.createElement("span");
-            labelText.className = "label p-label-text";
-            labelText.innerHTML = labelTitle;
-
-            label.href = link;
-            label.target = "_blank";
-
-            label.appendChild(labelIcon);
-            label.appendChild(labelText);
-
-            labels.appendChild(label);
-        }
-
-        card.appendChild(imageDiv);
-        card.appendChild(projectName);
-        if (desc) {
-            card.appendChild(projectDesc);
-        }
-        card.appendChild(labels);
-
-        projectsDiv.appendChild(card);
-    }
+    return "linear-gradient(135deg, " + palette[0] + ", " + palette[1] + ")";
 }

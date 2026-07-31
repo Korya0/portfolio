@@ -8,7 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- DNS prefetch for CDN performance -->
-    <link rel="dns-prefetch" href="//code.iconify.design">
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
@@ -16,47 +15,16 @@
     <link rel="dns-prefetch" href="//ajax.googleapis.com">
     <link rel="dns-prefetch" href="//unpkg.com">
 
-    <!-- Enhanced SEO meta tags -->
+    <!-- SEO meta tags -->
     <meta name="description"
         content="AI &amp; product engineer building AI agents, automation and LLM workflows — with a background in Flutter and mobile app development. Educator and creator of Fluter Karo. Explore my portfolio and projects.">
     <meta name="keywords"
         content="AI engineer, AI agents, context engineering, harness engineering, LLM engineer, AI automation, agentic workflows, product engineer, Flutter developer, Flutter mentor, Flutter educator, Fluter Karo, mobile app developer, Dart, community leader, portfolio, tech speaker, open source, Google DSC, Microsoft Student Ambassador, Flutter Pakistan, Flutter community">
     <meta name="author" content="Mahmoud Mohamed" />
     <link rel="canonical" href="https://mahmoud.dev/">
-    
-    <!-- Canonical URL Management Script -->
-    <script>
-        // Handle URL parameters for SEO - ensure canonical URL is always clean
-        (function() {
-            const currentURL = window.location.href;
-            const baseURL = 'https://mahmoud.dev/';
-            
-            // Check if current URL has query parameters
-            if (window.location.search) {
-                // Update canonical link dynamically
-                const canonicalLink = document.querySelector('link[rel="canonical"]');
-                if (canonicalLink) {
-                    canonicalLink.href = baseURL;
-                }
-                
-                // For tracking/analytics purposes, you can capture the parameters here
-                const urlParams = new URLSearchParams(window.location.search);
-                
-                // Optional: Log tracking parameters for analytics
-                if (urlParams.has('utm_source') || urlParams.has('trk') || urlParams.has('from')) {
-                    console.log('Tracking parameters detected:', Object.fromEntries(urlParams));
-                }
-                
-                // Use history.replaceState to clean URL without page reload
-                if (window.history && window.history.replaceState) {
-                    window.history.replaceState({}, document.title, baseURL);
-                }
-            }
-        })();
-    </script>
-    
+
     <!-- Open Graph meta tags for social sharing -->
-    <meta property="og:title" content="Mahmoud Mohamed - AI & Product Engineer, Educator & Developer" />
+    <meta property="og:title" content="Mahmoud Mohamed | Flutter Developer" />
     <meta property="og:description"
         content="AI & product engineer building AI agents, automation and LLM workflows, with a Flutter background. Educator and community leader. Explore my portfolio and projects." />
     <meta property="og:type" content="website" />
@@ -64,12 +32,6 @@
     <meta property="og:image" content="https://mahmoud.dev/images/me-bw.png" />
     <meta property="og:image:alt" content="Mahmoud Mohamed - AI & Product Engineer" />
     <meta property="og:site_name" content="mahmoud.dev" />
-    <!-- Twitter Card meta tags -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Mahmoud Mohamed - AI & Product Engineer, Educator & Developer" />
-    <meta name="twitter:description"
-        content="AI & product engineer building AI agents, automation and LLM workflows, with a Flutter background. Educator and community leader. Explore my portfolio and projects." />
-    <meta name="twitter:image" content="https://mahmoud.dev/images/me-bw.png" />
     <!-- Google Analytics (GA4) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-YFBGNPTQTH"></script>
     <script>
@@ -109,7 +71,7 @@
     </script>
 
 
-    <title>Mahmoud Mohamed | AI & Product Engineer, Flutter Developer & Educator</title>
+    <title>Mahmoud Mohamed | Flutter Developer</title>
     <link rel="icon" type="image/png" href="images/title/favicon.png">
     <link rel="icon" type="image/jpeg" href="images/title/favicon.jpg">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
@@ -127,21 +89,17 @@
     <link rel="stylesheet" href="css/techStack.css">
     <link rel="stylesheet" href="css/projects.css">
     <link rel="stylesheet" href="css/exp.css">
-    <link rel="stylesheet" href="css/community.css">
     <link rel="stylesheet" href="css/contact.css">
 
     <link rel="stylesheet" href="components/currentDate.css">
 
-    <!-- Required for AOS -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- AOS animations -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
 
     <!-- media queries -->
     <!-- mobile -->
     <link rel="stylesheet" href="media/mobile/s.css">
     <link rel="stylesheet" href="media/mobile/xs.css">
-
-    <!-- tablet -->
-    <link rel="stylesheet" href="media/tablet/m.css">
 
     <!-- desktop -->
     <link rel="stylesheet" href="media/desktop/ml.css">
@@ -149,51 +107,18 @@
     <link rel="stylesheet" href="media/desktop/xl.css">
     <link rel="stylesheet" href="media/desktop/xl_4k.css">
 
-    <!-- others -->
-    <link rel="stylesheet" href="media/others.css">
-
     <!-- bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <!-- icons -->
-    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- icons & fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/konpa/devicon@master/devicon.min.css">
-
-    <!-- font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
 
-
-    <!-- scripts -->
-    <script>
-        // Set canonical URL dynamically to remove query parameters
-        (function () {
-            var canonicalUrl = window.location.origin + window.location.pathname;
-
-            // Ensure homepage canonical is clean
-            if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
-                canonicalUrl = window.location.origin + '/';
-            }
-
-            // Update or create canonical link
-            var existingCanonical = document.querySelector('link[rel="canonical"]');
-            if (existingCanonical) {
-                existingCanonical.href = canonicalUrl;
-            } else {
-                var canonical = document.createElement('link');
-                canonical.rel = 'canonical';
-                canonical.href = canonicalUrl;
-                document.head.appendChild(canonical);
-            }
-        })();
-    </script>
-
+    <!-- jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 
 </head>
@@ -202,7 +127,7 @@
 
     <nav class="navbar navbar-dark navbar-expand-md" id="app-navbar">
         <button id="navbar-icon" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu">
-            <img src="images/svgs/menu.svg" alt="">
+            <img src="images/svgs/menu.svg" alt="menu">
         </button>
 
         <a href="#" data-aos="fade-down" data-aos-delay="200" class="navbar-brand">
@@ -247,7 +172,7 @@
         </div>
 
         <div class="tag">
-            <div class="trianlge-right"></div>
+            <div class="triangle-right"></div>
             <span id="tag" class="txt-type" data-wait="1000ms"
                 data-words='["Flutter Developer"]'>
             </span>
@@ -266,7 +191,7 @@
 
         <div class="container-fluid image-bg-div">
             <div class="profile-picture">
-                <img class="dp" src="images/me-bw.png" alt="muhammad hamza profile picture">
+                <img class="dp" src="images/me-bw.png" alt="Mahmoud Mohamed profile picture">
             </div>
 
             <div id="overall-stats" class="stats stats-div"></div>
@@ -278,10 +203,10 @@
 
     <div class="space"></div>
 
-    <div id="tech" class=" tech-stack">
+    <div id="tech" class="tech-stack">
         <div class="tech-stack-detail">
-            <p id="tech-stack-title">Tech Stack</p>
-            <p id="tech-stack-text">
+            <p class="section-title">Tech Stack</p>
+            <p class="section-text">
                 Change is inevitable, so I keep on exploring new technology,
                 learn it in a minimal possible way and then build something
                 out of it to see how well I did :)
@@ -316,12 +241,12 @@
     </div>
 
     <div id="projects-div" class="container-fluid projects-div">
-        <p id="tech-stack-title">Projects</p>
-        <p id="tech-stack-text" style="background-color: transparent; text-align: center;">
+        <p class="section-title">Projects</p>
+        <p class="section-text text-center">
             Stuff I loved working with
         </p>
 
-        <div style="height: 50px;"></div>
+        <div class="spacer"></div>
 
         <div id="projects" class="projects"></div>
 
@@ -332,16 +257,16 @@
     </div>
 
     <div id="exp" class="container-fluid exp-div">
-        <p id="tech-stack-title">Experience</p>
-        <p id="tech-stack-text" style="background-color: transparent; text-align: center;">
+        <p class="section-title">Experience</p>
+        <p class="section-text text-center">
             Reflection of what I've been doing so far, so long.
         </p>
         <div id="exp-timeline" class="exp-timeline"></div>
     </div>
 
     <div id="contact-div" class="container-fluid contact-div">
-        <p id="tech-stack-title">Get in touch</p>
-        <p id="tech-stack-text" style="background-color: transparent; text-align: center;">
+        <p class="section-title">Get in touch</p>
+        <p class="section-text text-center">
             Let's build something together :)
         </p>
 
@@ -373,15 +298,14 @@
         </div>
     </div>
 
-    <script type="text/javascript" src="js/header.js"></script>
-    <script type="text/javascript" src="js/typeWriter.js"></script>
-    <script type="text/javascript" src="js/tech.js"></script>
-    <script type="text/javascript" src="js/projects.js"></script>
-    <script type="text/javascript" src="js/experience.js"></script>
-    <script type="text/javascript" src="js/community.js"></script>
-    <script type="text/javascript" src="js/contact.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/typeWriter.js"></script>
+    <script src="js/tech.js"></script>
+    <script src="js/projects.js"></script>
+    <script src="js/experience.js"></script>
+    <script src="js/contact.js"></script>
 
-    <script type="text/javascript" src="index.js"></script>
+    <script src="index.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js" defer></script>
 
 

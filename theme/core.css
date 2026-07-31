@@ -5,23 +5,17 @@
     --bg-dark: #25262A;
 }
 
+/* Paint the canvas background once on the root elements so the browser never
+   flashes white while scrolling fast or after switching back to the tab. */
+html,
+body {
+    background-color: var(--bg);
+    overflow-x: hidden;
+}
+
+/* Base background for every element — keeps the original design where the
+   first (header) and last (contact) sections carry the dark background. */
 * {
     background-color: var(--bg);
     font-family: 'Montserrat', sans-serif;
-}
-
-.primary {
-    color: #6EF3A5;
-}
-
-.text-light {
-    color: #7D7E83;
-}
-
-.bg {
-    background-color: #2D2E32;
-}
-
-.bg-dark {
-    background-color: #25262A;
 }

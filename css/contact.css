@@ -38,7 +38,7 @@
     cursor: pointer;
 }
 
-#mail-icon {
+.contact-card-icon {
     font-size: 24px;
     background-color: transparent;
     color: var(--primary-green);
@@ -51,7 +51,7 @@
     font-size: 12px;
 }
 
-#chevron-icon {
+.contact-card-chevron {
     background-color: transparent;
     color: var(--primary-green);
 }

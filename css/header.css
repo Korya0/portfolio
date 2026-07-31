@@ -57,16 +57,6 @@
     animation: beat 1s;
 }
 
-@keyframes beat {
-    from {
-        transform: scale(0.0);
-    }
-
-    to {
-        transform: scale(1);
-    }
-}
-
 .social-icon-wrapper:hover {
     text-decoration: none;
     transition: .5s;
@@ -95,16 +85,6 @@
     font-weight: 700;
 }
 
-#accelerator-btn {
-    background-color: transparent;
-    color: #5EC4F5;
-    text-decoration: underline;
-    text-underline-offset: 10px;
-    letter-spacing: 2px;
-    font-weight: 700;
-    margin-left: 10%;
-}
-
 .value {
     color: white;
     font-size: 24px;
@@ -126,7 +106,6 @@
     overflow: hidden;
 }
 
-
 .profile-picture {
     right: 5%;
     bottom: -5%;
@@ -141,4 +120,4 @@
 .dp {
     -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
     mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
-} 
+}

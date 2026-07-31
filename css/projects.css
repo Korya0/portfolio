@@ -8,13 +8,6 @@
     background-color: var(--bg);
 }
 
-#project-subtitle {
-    color: white;
-    width: 400px;
-    line-height: 20px;
-    font-size: 12px;
-}
-
 .projects {
     display: flex;
     flex-wrap: wrap;
@@ -51,8 +44,6 @@
     border-radius: 6px;
     background-color: rgba(110, 243, 165, 0.08);
     border: 1px solid rgba(110, 243, 165, 0.3);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
     position: absolute;
     top: 10px;
     left: 10px;
@@ -141,8 +132,6 @@
     border-radius: 6px;
     background-color: rgba(110, 243, 165, 0.08);
     border: 1px solid rgba(110, 243, 165, 0.3);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
     transition: 0.3s;
     color: var(--primary-green);
     text-decoration: none;

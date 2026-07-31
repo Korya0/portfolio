@@ -1,140 +1,58 @@
-document.addEventListener("DOMContentLoaded", function () {
-    mapTechData();
-});
+// Tech stack rendering
+document.addEventListener("DOMContentLoaded", renderTechStack);
 
-function mapTechData() {
-    let tech = [
-        // Mobile Development (Longest → Shortest)
-        {
-            "name": "Flutter",
-            "icon": "images/tech/flutter.svg",
-            "type": "mobile-tech"
-        },
-        {
-            "name": "Dart",
-            "icon": "images/tech/dart.svg",
-            "type": "mobile-tech"
-        },
+const TECH_STACK = [
+    // Mobile Development
+    { name: "Flutter", icon: "images/tech/flutter.svg", category: "mobile-tech" },
+    { name: "Dart", icon: "images/tech/dart.svg", category: "mobile-tech" },
 
-        // Networking (Longest → Shortest)
-        {
-            "name": "REST APIs",
-            "icon": "images/tech/api.svg",
-            "type": "server-tech"
-        },
-        {
-            "name": "GraphQL",
-            "icon": "images/tech/graphql.svg",
-            "type": "server-tech"
-        },
+    // Databases
+    { name: "Firebase", icon: "images/tech/firebase.svg", category: "database-tech" },
+    { name: "Supabase", icon: "images/tech/supabase.svg", category: "database-tech" },
 
-        // Databases (Longest → Shortest)
-        {
-            "name": "Firebase",
-            "icon": "images/tech/firebase.svg",
-            "type": "database-tech"
-        },
-        {
-            "name": "Supabase",
-            "icon": "images/tech/supabase.svg",
-            "type": "database-tech"
-        },
+    // Networking
+    { name: "REST APIs", icon: "images/tech/api.svg", category: "server-tech" },
+    { name: "GraphQL", icon: "images/tech/graphql.svg", category: "server-tech" },
 
-        // State Management (Longest → Shortest)
-        {
-            "name": "Bloc / Cubit",
-            "icon": "images/tech/bloc-svgrepo-com.svg",
-            "type": "state-tech"
-        },
-        {
-            "name": "Riverpod",
-            "icon": "images/tech/redux-svgrepo-com.svg",
-            "type": "state-tech"
-        },
+    // State Management
+    { name: "Bloc / Cubit", icon: "images/tech/bloc-svgrepo-com.svg", category: "state-tech" },
+    { name: "Riverpod", icon: "images/tech/redux-svgrepo-com.svg", category: "state-tech" },
 
-        // Local Storage (Longest → Shortest)
-        {
-            "name": "SharedPreferences",
-            "icon": "images/tech/storage.svg",
-            "type": "storage-tech"
-        },
-        {
-            "name": "Hive",
-            "icon": "images/tech/hive.svg",
-            "type": "storage-tech"
-        },
+    // Local Storage
+    { name: "SharedPreferences", icon: "images/tech/storage.svg", category: "storage-tech" },
+    { name: "Hive", icon: "images/tech/hive.svg", category: "storage-tech" },
 
-        // Testing (Longest → Shortest)
-        {
-            "name": "Integration",
-            "icon": "images/tech/testing.svg",
-            "type": "testing-tech"
-        },
-        {
-            "name": "Widget",
-            "icon": "images/tech/testing.svg",
-            "type": "testing-tech"
-        },
-        {
-            "name": "Unit",
-            "icon": "images/tech/testing.svg",
-            "type": "testing-tech"
-        },
+    // Testing
+    { name: "Integration", icon: "images/tech/testing.svg", category: "testing-tech" },
+    { name: "Widget", icon: "images/tech/testing.svg", category: "testing-tech" },
+    { name: "Unit", icon: "images/tech/testing.svg", category: "testing-tech" },
 
-        // CI/CD (Longest → Shortest)
-        {
-            "name": "GitHub Actions",
-            "icon": "images/tech/github-actions.svg",
-            "type": "cicd-tech"
-        },
-        {
-            "name": "Fastlane",
-            "icon": "images/tech/fastlane.svg",
-            "type": "cicd-tech"
-        },
-        {
-            "name": "GitHub",
-            "icon": "images/tech/github-actions.svg",
-            "type": "cicd-tech"
-        },
-        {
-            "name": "Git",
-            "icon": "images/tech/git.svg",
-            "type": "cicd-tech"
-        },
+    // CI/CD
+    { name: "GitHub Actions", icon: "images/tech/github-actions.svg", category: "cicd-tech" },
+    { name: "Fastlane", icon: "images/tech/fastlane.svg", category: "cicd-tech" },
+    { name: "GitHub", icon: "images/tech/github-actions.svg", category: "cicd-tech" },
+    { name: "Git", icon: "images/tech/git.svg", category: "cicd-tech" },
+];
 
-        // Design & Tools
-        {
-            "name": "Figma",
-            "icon": "images/tech/figma.svg",
-            "type": "design-tech"
-        },
-    ];
+function renderTechStack() {
+    TECH_STACK.forEach(function (tech) {
+        const container = document.getElementById(tech.category);
+        if (!container) return;
 
-    for (var i = 0; i < tech.length; i++) {
-        var techDiv = document.createElement("div");
+        const techDiv = document.createElement("div");
         techDiv.className = "tech";
 
-        if (tech[i]["icon"].startsWith("fa ")) {
-            var iconEl = document.createElement("i");
-            iconEl.className = tech[i]["icon"] + " tech-icon";
-            techDiv.appendChild(iconEl);
-        } else {
-            var techIconImg = document.createElement("img");
-            techIconImg.className = "tech-icon";
-            techIconImg.src = tech[i]["icon"];
-            techIconImg.alt = tech[i]["name"];
-            techDiv.appendChild(techIconImg);
-        }
+        const icon = document.createElement("img");
+        icon.className = "tech-icon";
+        icon.src = tech.icon;
+        icon.alt = tech.name;
 
-        var techName = document.createElement("span");
-        techName.className = "tech-label";
-        techName.innerHTML = tech[i]["name"];
-        techDiv.appendChild(techName);
+        const label = document.createElement("span");
+        label.className = "tech-label";
+        label.textContent = tech.name;
 
-        var relatedDiv = document.getElementById(tech[i]["type"]);
-        if (relatedDiv) {
-            relatedDiv.appendChild(techDiv);
-        }
-    }
+        techDiv.appendChild(icon);
+        techDiv.appendChild(label);
+        container.appendChild(techDiv);
+    });
 }

@@ -17,7 +17,6 @@
         padding-bottom: 4%;
     }
 
-
     .tag {
         padding-top: 1%;
         padding-left: 4%;
@@ -29,7 +28,7 @@
         padding-left: 1%;
     }
 
-    .trianlge-right {
+    .triangle-right {
         margin-top: 3px;
         width: 0;
         height: 0;
@@ -37,7 +36,6 @@
         border-left: 15px solid var(--primary-green);
         border-bottom: 8px solid transparent;
     }
-
 
     .social-icon-wrapper {
         padding: 3%;
@@ -49,10 +47,6 @@
 
     #chat-btn {
         padding: 4%;
-    }
-
-    #accelerator-btn {
-        margin-left: 4%;
     }
 
     .stats {
@@ -99,11 +93,7 @@
         justify-content: center;
     }
 
-    #tech-stack-text {
-        width: 100%;
-    }
-
-    .tech-stack-details {
+    .section-text {
         width: 100%;
     }
 
@@ -150,47 +140,6 @@
         width: 100%;
         margin-left: 0;
         padding-left: 14px;
-        width: 100%
-    }
-
-    .community-div {
-        padding-left: 1%;
-        padding-right: 1%;
-        flex-direction: column-reverse;
-    }
-
-    .community-card {
-        width: 100%;
-    }
-
-    .c-title {
-        font-size: 14px;
-    }
-
-    .cw-info {
-        width: 100%;
-        justify-self: center;
-        align-items: center;
-    }
-
-    .cw-number {
-        font-size: 24px;
-    }
-
-    .cw-stats-div {
-        max-width: 100%;
-    }
-
-    .calendar {
-        width: 330px;
-    }
-
-    .year-txt {
-        font-size: 14px;
-    }
-
-    .year-num {
-        font-size: 18px;
     }
 
     .contact-card {

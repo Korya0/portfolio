@@ -1,3 +1,4 @@
+/* Global scrollbar */
 ::-webkit-scrollbar {
     width: 8px;
 }
@@ -12,6 +13,7 @@
     border-radius: 2px;
 }
 
+/* Navbar */
 #app-navbar {
     padding-top: 2%;
     padding-left: 10%;
@@ -37,6 +39,7 @@ nav .navbar-nav li a:hover {
     transition: .5s;
 }
 
+/* Scroll-to-top button */
 .up {
     position: fixed;
     right: 0%;
@@ -51,19 +54,10 @@ nav .navbar-nav li a:hover {
     cursor: pointer;
 }
 
-.show {
-    opacity: 1;
-}
-
-.hide {
-    opacity: 0;
-}
-
 #up-icon {
     background-color: transparent;
     color: white;
 }
-
 
 @keyframes pulse2 {
     0% {
@@ -75,6 +69,7 @@ nav .navbar-nav li a:hover {
     }
 }
 
+/* Decorative gradient circle */
 .grad-circle {
     height: 650px;
     width: 650px;
@@ -87,27 +82,6 @@ nav .navbar-nav li a:hover {
     transform-origin: center;
 }
 
-
-#mini-circle {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100px;
-    width: 100px;
-    top: 10%;
-}
-
-#repo-link {
-    background-color: transparent;
-    color: white;
-    font-size: 38px;
-    transition: .5s;
-}
-
-#repo-link:hover {
-    color: var(--primary-green);
-}
-
 @keyframes beat {
     from {
         transform: scale(0.0);
@@ -118,6 +92,7 @@ nav .navbar-nav li a:hover {
     }
 }
 
+/* Floating decorative circles */
 .circle {
     height: 20px;
     width: 20px;
@@ -129,7 +104,7 @@ nav .navbar-nav li a:hover {
 
 #circle-1 {
     animation: MoveUpDown 3s linear infinite;
-    margin-top: 2%;
+    top: 60%;
     right: 8%;
 }
 
@@ -139,31 +114,21 @@ nav .navbar-nav li a:hover {
     right: 34%;
 }
 
+/* Animate transform instead of `top` so the browser can run this on the
+   compositor without re-running layout every frame (prevents scroll jank). */
 @keyframes MoveUpDown {
 
     0%,
     100% {
-        top: 60%;
+        transform: translateY(0);
     }
 
     50% {
-        top: 58%;
+        transform: translateY(-15px);
     }
 }
 
-.foot {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--bg-dark);
-    height: 60px;
-}
-
-.foot-text {
-    color: white
-}
-
-.foot-name {
-    margin-left: 5px;
-    color: var(--primary-green);
+/* Vertical spacer used between sections */
+.spacer {
+    height: 50px;
 }

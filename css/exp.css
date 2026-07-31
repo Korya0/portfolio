@@ -107,8 +107,6 @@
 .exp-tech-pill {
     background-color: rgba(110, 243, 165, 0.08);
     border: 1px solid rgba(110, 243, 165, 0.3);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
     color: var(--primary-green);
     font-size: 11px;
     padding: 3px 10px;
