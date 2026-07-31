@@ -9,7 +9,22 @@
 
 ## 👉 خطوتين بس عليك انت تعملهم:
 
-### 1) ارفع الفرع main لـ GitHub
+> ⚠️ **الترتيب مهم:** فعّل GitHub Pages الأول (الخطوة 1) **وبعدها** ارفع الـ push (الخطوة 2) —
+> لو عكست الترتيب، أول شغلة للـ Workflow هتفشل لحد ما تفعّل Pages الأول،
+> ولو ده حصل كده كده الحل سهل: فعّل Pages وبعدها من تبويب **Actions** اضغط **Re-run** على الشغلة الفاشلة.
+
+### 1) فعّل GitHub Pages من إعدادات الريبو (مرة واحدة بس)
+
+1. افتح الريبو بتاعك: **https://github.com/Korya0/portfolio**
+2. ادخل على **Settings** (تبويب الـ ⚙️ فوق)
+3. من الشريط الجانبي اختار **Pages**
+4. تحت **Build and deployment**:
+   - **Source** → اختار **GitHub Actions** (مش "Deploy from a branch")
+5. سيبه كده — الـ Workflow اللي عملته هيشتغل لوحده لما ترفع الـ push
+
+---
+
+### 2) ارفع الفرع main لـ GitHub
 
 افتح **Terminal / Git Bash / VS Code Terminal** جوه مشروع الـ portfolio واكتب:
 
@@ -18,17 +33,6 @@ git push origin main
 ```
 
 (لو GitHub طلب منك login — اعمل login مرة واحدة وبعدها هيظبط)
-
----
-
-### 2) فعّل GitHub Pages من إعدادات الريبو (مرة واحدة بس)
-
-1. افتح الريبو بتاعك: **https://github.com/Korya0/portfolio**
-2. ادخل على **Settings** (تبويب الـ ⚙️ فوق)
-3. من الشريط الجانبي اختار **Pages**
-4. تحت **Build and deployment**:
-   - **Source** → اختار **GitHub Actions** (مش "Deploy from a branch")
-5. سيبه كده — الـ Workflow اللي عملته هيشتغل لوحده
 
 ---
 
