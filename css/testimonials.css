@@ -9,7 +9,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: var(--bg);
+    /* Matches the Tech Stack section background */
+    background-color: var(--bg-dark);
 }
 
 /* ── Rating summary (5.0 / 3 reviews) — quiet, cardless ── */
@@ -74,11 +75,12 @@
     background-color: transparent;
 }
 
-/* ── Card — mirrors the Projects card (.project-card) ── */
+/* ── Card — mirrors the Projects card (.project-card) ──
+   Background matches the Projects SECTION background (var(--bg)). */
 .testimonial-card {
     display: flex;
     flex-direction: column;
-    background-color: var(--bg-dark);
+    background-color: var(--bg);
     border: 1px solid rgba(110, 243, 165, 0.15);
     border-top: 3px solid var(--primary-green);
     border-radius: 8px;
@@ -118,7 +120,7 @@
     transform: scale(1.06);
 }
 
-/* Bottom gradient overlay — mirrors .p-image::after */
+/* Bottom gradient overlay — mirrors .p-image::after, blends into the card */
 .testimonial-media::after {
     content: '';
     position: absolute;
@@ -126,7 +128,7 @@
     left: 0;
     right: 0;
     height: 50%;
-    background: linear-gradient(to bottom, transparent, var(--bg-dark));
+    background: linear-gradient(to bottom, transparent, var(--bg));
     pointer-events: none;
 }
 

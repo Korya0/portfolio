@@ -132,3 +132,49 @@ nav .navbar-nav li a:hover {
 .spacer {
     height: 50px;
 }
+
+/* Site footer — compact, two lines */
+.site-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 18px 14px;
+    background-color: var(--bg-dark);
+    border-top: 1px solid rgba(110, 243, 165, 0.08);
+    text-align: center;
+}
+
+.footer-line {
+    margin: 0;
+    background-color: transparent;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+.footer-line a {
+    color: var(--primary-green);
+    background-color: transparent;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: .3s;
+}
+
+.footer-line a:hover {
+    text-shadow: 0 0 10px rgba(110, 243, 165, 0.4);
+}
+
+.footer-line a:focus-visible {
+    outline: 2px solid var(--primary-green);
+    outline-offset: 2px;
+}
+
+/* The name as the focal point of the first line */
+.footer-name {
+    background-color: transparent;
+    color: white;
+    font-weight: 600;
+}
+
